@@ -45,7 +45,7 @@ class ClientController extends Controller
         // Mais en décomposant aussi la variable $request qui est une classe de Request()
         $client->nom_client = $request->nom_client;
         $client->prenom_client = $request->prenom_client;
-        $client->telephone_client = $request->telephone_client;
+        $client->phone_client = $request->phone_client;
         $client->email_client = $request->email_client;
         $client->adresse_client = $request->adresse_client;
 
@@ -54,7 +54,7 @@ class ClientController extends Controller
 
         // 1. 5: Après l'enregistrement au aura besoin d'être rediriger sur une page pour pas avoir une page blanche
         // !! Ici on nous rediriger vers l'url localhost:post_choisi/clients
-        return redirect('clients');
+        return redirect(route('clients.index'));
     }
 
     /**
@@ -91,7 +91,7 @@ class ClientController extends Controller
         $client = Client::find($id);
         // 2: On le supprime
         $client->delete();
-
+        return redirect()->route('clients.index')->with('Success', 'Client a été supprimer avec succes');
         // Attention:
         //           - Ici la variable $client est toujours égal à new Client
         //           - Un id supprimer ne peut plus être récuperer
