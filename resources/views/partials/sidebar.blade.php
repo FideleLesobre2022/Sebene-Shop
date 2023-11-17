@@ -4,7 +4,7 @@
 <div class="sidebar-wrapper" data-simplebar="true">
     <div class="sidebar-header">
         <div>
-            <img src="assets/images/logo-icon.png" class="logo-icon" alt="logo icon">
+            <img href= "{{  ('assets/images/logo-icon.png') }}" class="logo-icon" alt="logo icon" >
         </div>
         <div>
             <h4 class="logo-text">Synadmin</h4>
@@ -189,10 +189,9 @@
                 <div class="menu-title">Tables</div>
             </a>
             <ul>
-                <li> <a href="table-basic-table.html"><i class="bx bx-right-arrow-alt"></i>Basic Table</a>
-                </li>
-                <li> <a href="table-datatable.html"><i class="bx bx-right-arrow-alt"></i>Data Table</a>
-                </li>
+                <li> <a href="table-basic-table.html"><i class="bx bx-right-arrow-alt"></i>Basic Table</a></li>
+                <li> <a href="{{ route('clients.index') }}"><i class="bx bx-right-arrow-alt"></i>Clients</a></li>
+                <li> <a href="/categories"><i class="bx bx-right-arrow-alt"></i>Catégories</a></li>
             </ul>
         </li>
         <li class="menu-label">Pages</li>

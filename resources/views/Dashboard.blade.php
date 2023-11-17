@@ -1,7 +1,6 @@
 @extends('layouts.default')
 
-@section('dashboard_section')
-<div class="page-wrapper">
+@section('content')
     <div class="page-content">
 
         <div class="row row-cols-1 row-cols-lg-2 row-cols-xl-4">
@@ -85,8 +84,7 @@
                             </div>
                             <div class="dropdown ms-auto">
                                 <div class="cursor-pointer text-dark font-24 dropdown-toggle dropdown-toggle-nocaret"
-                                    data-bs-toggle="dropdown"><i
-                                        class="bx bx-dots-horizontal-rounded text-option"></i>
+                                    data-bs-toggle="dropdown"><i class="bx bx-dots-horizontal-rounded text-option"></i>
                                 </div>
                                 <div class="dropdown-menu dropdown-menu-end">
                                     <a class="dropdown-item" href="javaScript:;">Action</a>
@@ -130,8 +128,7 @@
                             </div>
                             <div class="dropdown ms-auto">
                                 <div class="cursor-pointer text-dark font-24 dropdown-toggle dropdown-toggle-nocaret"
-                                    data-bs-toggle="dropdown"><i
-                                        class="bx bx-dots-horizontal-rounded text-option"></i>
+                                    data-bs-toggle="dropdown"><i class="bx bx-dots-horizontal-rounded text-option"></i>
                                 </div>
                                 <div class="dropdown-menu dropdown-menu-end">
                                     <a class="dropdown-item" href="javaScript:;">Action</a>
@@ -212,8 +209,7 @@
                             </div>
                             <div class="dropdown ms-auto">
                                 <div class="cursor-pointer text-dark font-24 dropdown-toggle dropdown-toggle-nocaret"
-                                    data-bs-toggle="dropdown"><i
-                                        class="bx bx-dots-horizontal-rounded text-option"></i>
+                                    data-bs-toggle="dropdown"><i class="bx bx-dots-horizontal-rounded text-option"></i>
                                 </div>
                                 <div class="dropdown-menu dropdown-menu-end">
                                     <a class="dropdown-item" href="javaScript:;">Action</a>
@@ -228,8 +224,8 @@
                         <div
                             class="customers-list-item d-flex align-items-center border-top border-bottom p-2 cursor-pointer">
                             <div class="">
-                                <img src="assets/images/avatars/avatar-1.png" class="rounded-circle"
-                                    width="46" height="46" alt="" />
+                                <img src="assets/images/avatars/avatar-1.png" class="rounded-circle" width="46"
+                                    height="46" alt="" />
                             </div>
                             <div class="ms-2">
                                 <h6 class="mb-1 font-14">Emy Jackson</h6>
@@ -242,11 +238,10 @@
                                         class='bx bx-dots-vertical-rounded'></i></a>
                             </div>
                         </div>
-                        <div
-                            class="customers-list-item d-flex align-items-center border-bottom p-2 cursor-pointer">
+                        <div class="customers-list-item d-flex align-items-center border-bottom p-2 cursor-pointer">
                             <div class="">
-                                <img src="assets/images/avatars/avatar-2.png" class="rounded-circle"
-                                    width="46" height="46" alt="" />
+                                <img src="assets/images/avatars/avatar-2.png" class="rounded-circle" width="46"
+                                    height="46" alt="" />
                             </div>
                             <div class="ms-2">
                                 <h6 class="mb-1 font-14">Martin Hughes</h6>
@@ -259,11 +254,10 @@
                                         class='bx bx-dots-vertical-rounded'></i></a>
                             </div>
                         </div>
-                        <div
-                            class="customers-list-item d-flex align-items-center border-bottom p-2 cursor-pointer">
+                        <div class="customers-list-item d-flex align-items-center border-bottom p-2 cursor-pointer">
                             <div class="">
-                                <img src="assets/images/avatars/avatar-3.png" class="rounded-circle"
-                                    width="46" height="46" alt="" />
+                                <img src="assets/images/avatars/avatar-3.png" class="rounded-circle" width="46"
+                                    height="46" alt="" />
                             </div>
                             <div class="ms-2">
                                 <h6 class="mb-1 font-14">Laura Madison</h6>
@@ -276,11 +270,10 @@
                                         class='bx bx-dots-vertical-rounded'></i></a>
                             </div>
                         </div>
-                        <div
-                            class="customers-list-item d-flex align-items-center border-bottom p-2 cursor-pointer">
+                        <div class="customers-list-item d-flex align-items-center border-bottom p-2 cursor-pointer">
                             <div class="">
-                                <img src="assets/images/avatars/avatar-4.png" class="rounded-circle"
-                                    width="46" height="46" alt="" />
+                                <img src="assets/images/avatars/avatar-4.png" class="rounded-circle" width="46"
+                                    height="46" alt="" />
                             </div>
                             <div class="ms-2">
                                 <h6 class="mb-1 font-14">Shoan Stephen</h6>
@@ -293,11 +286,10 @@
                                         class='bx bx-dots-vertical-rounded'></i></a>
                             </div>
                         </div>
-                        <div
-                            class="customers-list-item d-flex align-items-center border-bottom p-2 cursor-pointer">
+                        <div class="customers-list-item d-flex align-items-center border-bottom p-2 cursor-pointer">
                             <div class="">
-                                <img src="assets/images/avatars/avatar-5.png" class="rounded-circle"
-                                    width="46" height="46" alt="" />
+                                <img src="assets/images/avatars/avatar-5.png" class="rounded-circle" width="46"
+                                    height="46" alt="" />
                             </div>
                             <div class="ms-2">
                                 <h6 class="mb-1 font-14">Keate Medona</h6>
@@ -310,11 +302,10 @@
                                         class='bx bx-dots-vertical-rounded'></i></a>
                             </div>
                         </div>
-                        <div
-                            class="customers-list-item d-flex align-items-center border-bottom p-2 cursor-pointer">
+                        <div class="customers-list-item d-flex align-items-center border-bottom p-2 cursor-pointer">
                             <div class="">
-                                <img src="assets/images/avatars/avatar-6.png" class="rounded-circle"
-                                    width="46" height="46" alt="" />
+                                <img src="assets/images/avatars/avatar-6.png" class="rounded-circle" width="46"
+                                    height="46" alt="" />
                             </div>
                             <div class="ms-2">
                                 <h6 class="mb-1 font-14">Paul Benn</h6>
@@ -327,11 +318,10 @@
                                         class='bx bx-dots-vertical-rounded'></i></a>
                             </div>
                         </div>
-                        <div
-                            class="customers-list-item d-flex align-items-center border-bottom p-2 cursor-pointer">
+                        <div class="customers-list-item d-flex align-items-center border-bottom p-2 cursor-pointer">
                             <div class="">
-                                <img src="assets/images/avatars/avatar-7.png" class="rounded-circle"
-                                    width="46" height="46" alt="" />
+                                <img src="assets/images/avatars/avatar-7.png" class="rounded-circle" width="46"
+                                    height="46" alt="" />
                             </div>
                             <div class="ms-2">
                                 <h6 class="mb-1 font-14">Winslet Maya</h6>
@@ -344,11 +334,10 @@
                                         class='bx bx-dots-vertical-rounded'></i></a>
                             </div>
                         </div>
-                        <div
-                            class="customers-list-item d-flex align-items-center border-bottom p-2 cursor-pointer">
+                        <div class="customers-list-item d-flex align-items-center border-bottom p-2 cursor-pointer">
                             <div class="">
-                                <img src="assets/images/avatars/avatar-8.png" class="rounded-circle"
-                                    width="46" height="46" alt="" />
+                                <img src="assets/images/avatars/avatar-8.png" class="rounded-circle" width="46"
+                                    height="46" alt="" />
                             </div>
                             <div class="ms-2">
                                 <h6 class="mb-1 font-14">Bruno Bernard</h6>
@@ -361,11 +350,10 @@
                                         class='bx bx-dots-vertical-rounded'></i></a>
                             </div>
                         </div>
-                        <div
-                            class="customers-list-item d-flex align-items-center border-bottom p-2 cursor-pointer">
+                        <div class="customers-list-item d-flex align-items-center border-bottom p-2 cursor-pointer">
                             <div class="">
-                                <img src="assets/images/avatars/avatar-9.png" class="rounded-circle"
-                                    width="46" height="46" alt="" />
+                                <img src="assets/images/avatars/avatar-9.png" class="rounded-circle" width="46"
+                                    height="46" alt="" />
                             </div>
                             <div class="ms-2">
                                 <h6 class="mb-1 font-14">Merlyn Dona</h6>
@@ -378,11 +366,10 @@
                                         class='bx bx-dots-vertical-rounded'></i></a>
                             </div>
                         </div>
-                        <div
-                            class="customers-list-item d-flex align-items-center border-bottom p-2 cursor-pointer">
+                        <div class="customers-list-item d-flex align-items-center border-bottom p-2 cursor-pointer">
                             <div class="">
-                                <img src="assets/images/avatars/avatar-10.png" class="rounded-circle"
-                                    width="46" height="46" alt="" />
+                                <img src="assets/images/avatars/avatar-10.png" class="rounded-circle" width="46"
+                                    height="46" alt="" />
                             </div>
                             <div class="ms-2">
                                 <h6 class="mb-1 font-14">Alister Campel</h6>
@@ -407,8 +394,7 @@
                             </div>
                             <div class="dropdown ms-auto">
                                 <div class="cursor-pointer text-dark font-24 dropdown-toggle dropdown-toggle-nocaret"
-                                    data-bs-toggle="dropdown"><i
-                                        class="bx bx-dots-horizontal-rounded text-option"></i>
+                                    data-bs-toggle="dropdown"><i class="bx bx-dots-horizontal-rounded text-option"></i>
                                 </div>
                                 <div class="dropdown-menu dropdown-menu-end">
                                     <a class="dropdown-item" href="javaScript:;">Action</a>
@@ -500,8 +486,7 @@
                             </div>
                             <div class="dropdown ms-auto">
                                 <div class="cursor-pointer text-dark font-24 dropdown-toggle dropdown-toggle-nocaret"
-                                    data-bs-toggle="dropdown"><i
-                                        class="bx bx-dots-horizontal-rounded text-option"></i>
+                                    data-bs-toggle="dropdown"><i class="bx bx-dots-horizontal-rounded text-option"></i>
                                 </div>
                                 <div class="dropdown-menu dropdown-menu-end">
                                     <a class="dropdown-item" href="javaScript:;">Action</a>
@@ -877,9 +862,5 @@
         </div><!--end row-->
 
     </div>
-</div>
-<!--end page wrapper -->
+    <!--end page wrapper -->
 @endsection
-
-
-

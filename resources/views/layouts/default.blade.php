@@ -8,12 +8,12 @@
 
 <body>
 
+<div class="page-wrapper">
     @include('partials.sidebar')
     @include('partials.header')
     <!--start page wrapper -->
-
     {{-- section --}}
-    @yield('dashboard_section')
+    @yield('content')
 
     <!--start overlay-->
     <div class="overlay toggle-icon"></div>
@@ -21,8 +21,10 @@
     <!--Start Back To Top Button--> <a href="javaScript:;" class="back-to-top"><i
             class='bx bxs-up-arrow-alt'></i></a>
     <!--End Back To Top Button-->
-    </div>
+
+
     <!--end wrapper-->
+</div>
     @include('partials.footer')
     @include('partials.switcher')
     @include('partials.scripts')
