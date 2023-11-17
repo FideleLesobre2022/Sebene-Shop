@@ -17,5 +17,4 @@ Route::get('/', function () {
     return view('dashboard');
 });
 
-
-
+Route::resource('/clients', ClientController::class);
