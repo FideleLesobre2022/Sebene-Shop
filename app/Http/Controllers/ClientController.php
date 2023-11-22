@@ -12,9 +12,13 @@ class ClientController extends Controller
      */
     public function index()
     {
+        //Corriger la numérotation
+        $counter = 1;
         //Charger les données de la DB
         $clients = Client::all();
-        return view('clients.index', compact('clients'));
+        return view('clients.index', compact('clients', 'counter'));
+
+
     }
 
     /**
@@ -31,9 +35,16 @@ class ClientController extends Controller
      */
     public function store(Request $request)
     {
-        // Validation
-
-
+        // Validation des champs de formulaire
+        // Sachant que validate est inclu dans la classe Request
+        $request->validate
+        ([
+            'prenom_client' => 'required',
+            'nom_client' => 'required',
+            'phone_client' => 'unique:clients,phone_client|max:13',
+            'email_client' => 'unique:clients,email_client|max:50|email',
+            'adresse_client' => 'required',
+        ]);
 
         // 1: Ajout du client à la base de données
         // 1. 1: Appel de la classe Client étant égal à la classe définie dans Models.Client
@@ -48,7 +59,6 @@ class ClientController extends Controller
         $client->phone_client = $request->phone_client;
         $client->email_client = $request->email_client;
         $client->adresse_client = $request->adresse_client;
-
         // 1. 4: On précise l'action à faire, enregistrer le nouveau client $client = new Client
         $client->save();
 
@@ -70,7 +80,12 @@ class ClientController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        //Avant de récupérer le formulaire, récupérer d'abord des informations du client à l'$id choisi
+        $client = Client::findOrfail($id);
+
+        //Appeler le formulaire en tenant compte de l'id séléctionner
+        return view('clients.edit', compact('client'));
+
     }
 
     /**
@@ -78,7 +93,28 @@ class ClientController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        // Validation pour éviter tout compromis
+        $request->validate
+        ([
+            'prenom_client' => 'required',
+            'nom_client' => 'required',
+            'phone_client' => 'unique:clients,phone_client|max:13',
+            'email_client' => 'unique:clients,email_client|max:50|email',
+            'adresse_client' => 'required',
+        ]);
+        $client = Client::findOrfail($id);
+        $client->nom_client = $request->get('nom_client');
+        $client->prenom_client = $request->get('prenom_client');
+        $client->phone_client = $request->get('phone_client');
+        $client->email_client = $request->get('email_client');
+        $client->adresse_client = $request->get('adresse_client');
+
+        $client->save();
+
+        // 1. 5: Après l'enregistrement au aura besoin d'être rediriger sur une page pour pas avoir une page blanche
+        // !! Ici on nous rediriger vers l'url localhost:post_choisi/clients
+        return redirect(route('clients.index'));
+
     }
 
     /**

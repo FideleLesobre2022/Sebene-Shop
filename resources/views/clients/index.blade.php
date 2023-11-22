@@ -42,7 +42,7 @@
                         <tbody>
                             @foreach ($clients as $client)
                                 <tr>
-                                    <td>{{ $client->id }}</td>
+                                    <td>{{ $counter++ }}</td>
                                     <td class="text-uppercase">{{ $client->prenom_client }}</td>
                                     <td class="text-uppercase">{{ $client->nom_client }}</td>
                                     <td class="text-uppercase">{{ $client->adresse_client }}</td>
@@ -53,15 +53,38 @@
                                             <form action="{{ route('clients.destroy', $client->id) }}" method="POST">
                                                 @csrf
                                                 @method('DELETE')
-                                                <a type="submit" class="ms-4 text-danger bg-light-primary border-0">
-                                                    <button class="bx bxs-trash bg-danger"></button>
+                                                <a class="ms-4 text-danger bg-light-primary border-0">
+                                                    <button class="bx bxs-trash bg-danger" type="button"
+                                                        data-bs-toggle="modal" data-bs-target="#exampleModal"></button>
                                                 </a>
+                                                <!-- Button trigger modal -->
+                                                <div class="modal fade" id="exampleModal" tabindex="-1"
+                                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                    <div class="modal-dialog">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h1 class="modal-title fs-5" id="exampleModalLabel">Modal
+                                                                    title</h1>
+                                                                <button type="button" class="btn-close"
+                                                                    data-bs-dismiss="modal" aria-label="Close"></button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                Voulez vous supprimer le client  <strong>{{ $client->prenom_client }} {{$client->nom_client}} </strong>
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-secondary"
+                                                                    data-bs-dismiss="modal">Annulez</button>
+                                                                <button type="submit"  class="btn btn-primary">Supprimer </button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- Modal -->
                                             </form>
 
-                                            <a href="javascript:;" class="ms-4 text-primary bg-light-primary border-0">
-                                                <i
-                                                    class="bx bxs-edit"></i>
-                                                </a>
+                                            <a href="{{ route('clients.edit', $client->id) }}" class="ms-4 text-primary bg-light-primary border-0">
+                                                <i class="bx bxs-edit"></i>
+                                            </a>
                                         </div>
                                     </td>
                                 </tr>
