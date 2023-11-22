@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ClientController;
+use App\Http\Controllers\ProduitController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,3 +20,4 @@ Route::get('/', function () {
 });
 
 Route::resource('/clients', ClientController::class);
+Route::resource('/products', ProduitController::class);
