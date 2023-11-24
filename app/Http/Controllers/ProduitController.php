@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+
+use App\Models\Produits;
 use Illuminate\Http\Request;
 
 class ProduitController extends Controller
@@ -11,7 +13,12 @@ class ProduitController extends Controller
      */
     public function index()
     {
-        //
+        //Corriger la numérotation
+        $counter = 1;
+        //Charger les données de la DB
+        $produits = Produits::all();
+        return view('produits.index', compact('produits'));
+
     }
 
     /**
@@ -19,7 +26,8 @@ class ProduitController extends Controller
      */
     public function create()
     {
-        //
+        //Appel du formulaire d'ajout du client
+        return view('produits.create');
     }
 
     /**
@@ -36,6 +44,8 @@ class ProduitController extends Controller
     public function show(string $id)
     {
         //
+        $produits = Produits::findOrfail($id);;
+        return view('produits.details', compact('produits'));
     }
 
     /**
