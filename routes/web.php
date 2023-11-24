@@ -20,4 +20,4 @@ Route::get('/', function () {
 });
 
 Route::resource('/clients', ClientController::class);
-Route::resource('/products', ProduitController::class);
+Route::resource('/produits', ProduitController::class);
