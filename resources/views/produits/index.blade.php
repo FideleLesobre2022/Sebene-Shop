@@ -24,7 +24,7 @@
         <!--end breadcrumb-->
 
         {{-- CARD VIEW --}}
-        <div class="row row-cols-sm-2 row-cols-lg-3 row-cols-xl-4 row-cols-xxl-5">
+        <div class="row row-cols-sm-2 row-cols-lg-5 row-cols-xl-3 row-cols-xxl-5">
         @foreach ($produits as $produit)
             <div class="col">
                 <div class="card">
