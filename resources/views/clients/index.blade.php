@@ -54,7 +54,7 @@
                                                 @csrf
                                                 @method('DELETE')
                                                 <a class="ms-4 text-danger bg-light-primary border-0">
-                                                    <button class="bx bxs-trash bg-danger" type="button"
+                                                    <button class="bx bxs-trash border-0 bg-light-primary" type="button" style="color: red; border-radius:20%"
                                                         data-bs-toggle="modal" data-bs-target="#exampleModal"></button>
                                                 </a>
                                                 <!-- Button trigger modal -->
