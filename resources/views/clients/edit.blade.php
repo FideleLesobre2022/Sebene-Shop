@@ -9,7 +9,7 @@
             <div class="ps-3">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb mb-0 p-0">
-                        <li class="breadcrumb-item"><a href="{{ route('clients.index') }}"><i class="bx bx-grid-alt"></i></a>
+                        <li class="breadcrumb-item"><a href="{{ route('clients.index') }}"><i class="bx bx-cart-alt"></i></a>
                         </li>
                         <li class="breadcrumb-item active" aria-current="page">Nouveau Client</li>
                     </ol>
@@ -25,7 +25,7 @@
                     <div class="card-title d-flex align-items-center">
                         <div><i class="bx bxs-user me-1 font-22 text-danger"></i>
                         </div>
-                        <h5 class="mb-0 text-danger">Identification du nouveau client</h5>
+                        <h5 class="mb-0 text-danger">Modification des information du client</h5>
                     </div>
                     <hr>
                     {{-- Pour mieux faire, ajouter une méthode blade et mettre csrf pour la sécurité du formulaire --}}

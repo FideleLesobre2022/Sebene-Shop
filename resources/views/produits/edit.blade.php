@@ -5,96 +5,102 @@
     <div class="page-content">
         <!--breadcrumb-->
         <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
-            <div class="breadcrumb-title pe-3">CLIENTS</div>
+            <div class="breadcrumb-title pe-3">PRODUITS</div>
             <div class="ps-3">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb mb-0 p-0">
-                        <li class="breadcrumb-item"><a href="{{ route('clients.index') }}"><i class="bx bx-grid-alt"></i></a>
+                        <li class="breadcrumb-item"><a href="{{ route('produits.index') }}"><i class="bx bx-grid-alt"></i></a>
                         </li>
-                        <li class="breadcrumb-item active" aria-current="page">Nouveau Client</li>
+                        <li class="breadcrumb-item active" aria-current="page">Nouveau Produit</li>
                     </ol>
                 </nav>
             </div>
         </div>
         <!--end breadcrumb-->
-        <div class="col-12 col-xl-6">
-            <h6 class="mb-0 text-uppercase">Ajouter nouveau client</h6>
-            <hr />
-            <div class="card border-top border-0 border-4 border-danger">
-                <div class="card-body p-5">
-                    <div class="card-title d-flex align-items-center">
-                        <div><i class="bx bxs-user me-1 font-22 text-danger"></i>
-                        </div>
-                        <h5 class="mb-0 text-danger">Identification du nouveau client</h5>
-                    </div>
-                    <hr>
-                    {{-- Pour mieux faire, ajouter une méthode blade et mettre csrf pour la sécurité du formulaire --}}
-                    <form class="row g-3" method="POST" action="{{ route('clients.update', $client->id) }}">
-                        @method('PATCH')
-                        @csrf
-                        {{-- Il est préférable de nommer les champs du formulaire comme les colonnes de la base de données --}}
-                        <div class="col-md-6">
-                            <label for="inputLastName1" class="form-label text-uppercase">Prénom</label>
-                            <div class="input-group"> <span class="input-group-text bg-transparent"><i
-                                        class='bx bxs-user'></i></span>
-                                <input name="prenom_client" type="text" class="form-control border-start-0"
-                                    id="inputLastName1" placeholder="Franck" value="{{ $client->prenom_client }}" />
-                                @error('prenom_client')
-                                    <div class="alert alert-danger">{{ $message }}</div>
-                                @enderror
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <label for="inputLastName2" class="form-label">Last Name</label>
-                            <div class="input-group"> <span class="input-group-text bg-transparent"><i
-                                        class='bx bxs-user'></i></span>
-                                <input name="nom_client" type="text" class="form-control border-start-0"
-                                    id="inputLastName2" placeholder="LeSobre" value="{{ $client->nom_client }}"/>
-                            </div>
-                                @error('nom_client')
-                                    <div class="alert alert-danger">{{ $message }}</div>
-                                @enderror
-                        </div>
-                        <div class="col-12">
-                            <label for="inputPhoneNo" class="form-label">Phone No</label>
-                            <div class="input-group"> <span class="input-group-text bg-transparent"><i
-                                        class='bx bxs-microphone'></i></span>
-                                <input type="tel" class="form-control border-start-0" id="inputPhoneNo"
-                                    placeholder="Phone No" name="phone_client" value="{{ $client->phone_client }}"/>
-                            </div>
-                                @error('phone_client')
-                                    <div class="alert alert-danger">{{ $message }}</div>
-                                @enderror
-                        </div>
-                        <div class="col-12">
-                            <label for="inputEmailAddress" class="form-label">Email Address</label>
-                            <div class="input-group"> <span class="input-group-text bg-transparent"><i
-                                        class='bx bxs-message'></i></span>
-                                <input type="text" class="form-control border-start-0" id="inputEmailAddress"
-                                    placeholder="Email Address" name="email_client" value="{{ $client->email_client }}"/>
-                            </div>
-                            @error('email_client')
-                                <div class="alert alert-danger">{{ $message }}</div>
-                            @enderror
-                        </div>
-                            @error('email_client')
-                                <div class="alert alert-danger">{{ $message }}</div>
-                            @enderror
-                        <div class="col-12">
-                            <label for="inputAddress3" class="form-label">Address</label>
-                            <textarea name="adresse_client" class="form-control" id="inputAddress3" placeholder="Enter Address" rows="3"
-                                style="height: 17px;">{{ $client->adresse_client }}</textarea>
-                            @error('adresse_client')
-                                <div class="alert alert-danger">{{ $message }}</div>
-                            @enderror
-                        </div>
 
-                        <div class="col-12">
-                            <button type="submit" class="btn btn-danger px-5">Register</button>
-                        </div>
-                    </form>
+        <div class="card">
+            <div class="card-body p-4">
+                <h5 class="card-title">Modifier les informations du produit</h5>
+                <div class="form-body mt-4">
+                    <hr />
+                    <div class="row">
+                        {{-- Pour mieux faire, ajouter une méthode blade et mettre csrf pour la sécurité du formulaire --}}
+                        <form class="row g-3" method="POST" action="{{ route('produits.update', $produits->id) }}">
+                            @method('PATCH')
+                            @csrf
+                            <div class="col-lg-8">
+                                <div class="border border-3 p-4 rounded">
+                                    <div class="mb-3">
+                                        <label for="inputProductTitle" class="form-label">Designation</label>
+                                        <input type="text" class="form-control" id="inputProductTitle"
+                                            placeholder="Entrez un nom du produit" name="nom_produit"  value="{{ $produits->nom_produit }}">
+                                        @error('nom_produit')
+                                            <div class="alert alert-danger">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="inputProductDescription" class="form-label">Description</label>
+                                        <textarea class="form-control" id="inputProductDescription" name="description_produit" rows="3">{{ $produits->description_produit }}</textarea>
+                                        @error('description_produit')
+                                            <div class="alert alert-danger">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <label for="fabrication" class="form-label">Date de fabrication</label>
+                                        <input type="date" class="form-control" name="date_fabrication_produit"
+                                            id="fabrication" value="{{ $produits->date_fabrication_produit }}">
+                                        @error('date_fabrication_produit')
+                                            <div class="alert alert-danger">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="expiry" class="form-label">Date d'expiration</label>
+                                        <input type="date" class="form-control" name="date_expiration_produit"
+                                            id="expiry" value="{{ $produits->date_expiration_produit }}">
+                                        @error('date_expiration_produit')
+                                            <div class="alert alert-danger">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="inputPrice" class="form-label">Price</label>
+                                        <input type="text" class="form-control" name="prix" id="inputPrice"
+                                            placeholder="00.00" value="{{ $produits->prix }}">
+                                        @error('prix')
+                                            <div class="alert alert-danger">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+
+                                    <div class="mt-3">
+                                        <label for="image-uploadify" class="form-label">Image du produit</label>
+                                        <div class="card">
+                                            <div class="card-body" style="border-style: dashed; border-color:blue">
+                                                <div class="ff_fileupload_wrap">
+                                                    <div class="ff_fileupload_dropzone_wrap">
+                                                        <button class="ff_fileupload_dropzone" type="button"
+                                                            aria-label="Browse, drag-and-drop, or paste files to upload">
+                                                            <input id="fancy-file-upload" type="file" name="files"
+                                                                accept=".jpg, .png, image/jpeg, image/png" multiple=""
+                                                                class="ff_fileupload_hidden">
+                                                        </button>
+                                                        <div class="ff_fileupload_dropzone_tools">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--end row-->
+                                    </div>
+                                    <div class="col-md-6 mt-3 mb-4">
+                                        <div class="d-grid">
+                                            <button type="submit" class="btn btn-primary">Enregistrer</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div><!--end row-->
                 </div>
             </div>
         </div>
-    </div>
-@endsection
+    @endsection

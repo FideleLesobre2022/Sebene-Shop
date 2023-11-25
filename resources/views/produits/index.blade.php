@@ -28,7 +28,7 @@
         @foreach ($produits as $produit)
             <div class="col">
                 <div class="card">
-                    <img src={!! asset('assets/images/products/01.png')!!} class="card-img-top" alt="...">
+                    <img src={!! asset('assets/images/products/01.png')!!} class="card-img-top" alt="Erreur de Chargement de l'image">
                     <div class="">
                         <div class="position-absolute top-0 end-0 m-3 product-discount fw-bold">
                             <span> {{"$"}} </span>
