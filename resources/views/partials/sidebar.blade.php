@@ -192,6 +192,7 @@
                 <li> <a href="table-basic-table.html"><i class="bx bx-right-arrow-alt"></i>Basic Table</a></li>
                 <li> <a href="{{ route('clients.index') }}"><i class="bx bx-right-arrow-alt"></i>Clients</a></li>
                 <li> <a href="{{ route('produits.index') }}"><i class="bx bx-right-arrow-alt"></i>Produits</a></li>
+                <li> <a href="{{ route('employes.index') }}"><i class="bx bx-right-arrow-alt"></i>Employés</a></li>
             </ul>
         </li>
         <li class="menu-label">Pages</li>
