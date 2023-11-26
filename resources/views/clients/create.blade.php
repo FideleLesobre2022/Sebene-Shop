@@ -45,7 +45,7 @@
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <label for="inputLastName2" class="form-label">Last Name</label>
+                            <label for="inputLastName2" class="form-label">Nom</label>
                             <div class="input-group"> <span class="input-group-text bg-transparent"><i
                                         class='bx bxs-user'></i></span>
                                 <input name="nom_client" type="text" class="form-control border-start-0"
@@ -56,7 +56,7 @@
                             </div>
                         </div>
                         <div class="col-12">
-                            <label for="inputPhoneNo" class="form-label">Phone No</label>
+                            <label for="inputPhoneNo" class="form-label">Phone</label>
                             <div class="input-group"> <span class="input-group-text bg-transparent"><i
                                         class='bx bxs-microphone'></i></span>
                                 <input type="tel" class="form-control border-start-0" id="inputPhoneNo"
@@ -67,7 +67,7 @@
                             </div>
                         </div>
                         <div class="col-12">
-                            <label for="inputEmailAddress" class="form-label">Email Address</label>
+                            <label for="inputEmailAddress" class="form-label">Email</label>
                             <div class="input-group"> <span class="input-group-text bg-transparent"><i
                                         class='bx bxs-message'></i></span>
                                 <input type="text" class="form-control border-start-0" id="inputEmailAddress"
@@ -78,7 +78,7 @@
                             </div>
                         </div>
                         <div class="col-12">
-                            <label for="inputAddress3" class="form-label">Address</label>
+                            <label for="inputAddress3" class="form-label">Addresse</label>
                             <textarea name="adresse_client" class="form-control" id="inputAddress3" placeholder="Enter Address" rows="3"
                                 style="height: 17px;"></textarea>
                             @error('adresse_client')
@@ -86,7 +86,7 @@
                             @enderror
                         </div>
                         <div class="col-12">
-                            <button type="submit" class="btn btn-danger px-5">Register</button>
+                            <button type="submit" class="btn btn-danger px-5">Enregistrer</button>
                         </div>
                     </form>
                 </div>
