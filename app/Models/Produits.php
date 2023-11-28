@@ -14,7 +14,9 @@ class Produits extends Model
         'description_produit',
         'prix',
         'date_fabrication_produit',
-        'date_expiration_produit'
+        'date_expiration_produit',
+        'disponibilite',
+        'image_produit',
     ];
 
 

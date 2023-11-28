@@ -58,6 +58,7 @@ class ProduitController extends Controller
         $produits->prix = $request->prix;
         $produits->date_fabrication_produit = $request->date_fabrication_produit;
         $produits->date_expiration_produit = $request->date_expiration_produit;
+        $produits->disponibilite = $request->disponibilite;
         // 1. 4: On précise l'action à faire, enregistrer le nouveau client $client = new Client
         $produits->save();
 
@@ -111,6 +112,7 @@ class ProduitController extends Controller
         $produits->description_produit = $request->get('description_produit');
         $produits->date_fabrication_produit = $request->get('date_fabrication_produit');
         $produits->date_expiration_produit = $request->get('date_expiration_produit');
+        $produits->disponibilite = $request->get('disponibilite');
         // Enregistrez les information de mise à jour
         $produits->save();
 

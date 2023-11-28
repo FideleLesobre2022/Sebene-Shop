@@ -34,6 +34,13 @@
                             <span> {{"$"}} </span>
                             <span> {{ $produit->prix }}</span>
                         </div>
+                        <div class="position-absolute top-0 start-2 m-3  fw-bold">
+                            @if ($produit->disponibilite !== 0 )
+                                <span> Disponible</span>
+                            @else
+                                <span> Non disponible</span>
+                            @endif
+                        </div>
                     </div>
                     <div class="card-body">
                         <h6 class="card-title cursor-pointer"> {{ $produit->nom_produit }} </h6>

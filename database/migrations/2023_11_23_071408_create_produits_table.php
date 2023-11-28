@@ -16,9 +16,10 @@ return new class extends Migration
             $table->string('nom_produit');
             $table->string('description_produit');
             $table->decimal('prix', 10, 2);
-            $table->boolean('disponibilite')->nullable()->default(false);
+            $table->boolean('disponibilite')->default(false);
             $table->date('date_fabrication_produit');
             $table->date('date_expiration_produit');
+            $table->string('image_produit')->nullable();
             $table->timestamps();
         });
     }

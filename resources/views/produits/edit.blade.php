@@ -33,7 +33,8 @@
                                     <div class="mb-3">
                                         <label for="inputProductTitle" class="form-label">Designation</label>
                                         <input type="text" class="form-control" id="inputProductTitle"
-                                            placeholder="Entrez un nom du produit" name="nom_produit"  value="{{ $produits->nom_produit }}">
+                                            placeholder="Entrez un nom du produit" name="nom_produit"
+                                            value="{{ $produits->nom_produit }}">
                                         @error('nom_produit')
                                             <div class="alert alert-danger">{{ $message }}</div>
                                         @enderror
@@ -61,6 +62,13 @@
                                         @error('date_expiration_produit')
                                             <div class="alert alert-danger">{{ $message }}</div>
                                         @enderror
+                                    </div>
+                                    <div class="col-md-6 form-group">
+                                        <label for="disponibilite" class="form-label mb-3 mt-3">Disponibilité</label>
+                                        <select name="disponibilite" class="select-group" id="disponibilite">
+                                            <option value="0" {{ $produits->disponibilite === 0 ? "selected" : "" }} >Non disponible</option>
+                                            <option value="1" {{ $produits->disponibilite === 1 ? "selected" : "" }} >Disponible</option>
+                                        </select>
                                     </div>
                                     <div class="col-md-6">
                                         <label for="inputPrice" class="form-label">Price</label>

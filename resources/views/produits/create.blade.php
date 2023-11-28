@@ -70,6 +70,14 @@
                                         @enderror
                                     </div>
 
+                                    <div class="col-md-6 form-group" >
+                                        <label for="disponibilite" class="form-label mb-3 mt-3">Disponibilité</label>
+                                        <select name="disponibilite" class="select-group" id="disponibilite">
+                                            <option value="0" class="select-item" selected>Non disponible</option>
+                                            <option value="1" >Disponible</option>
+                                        </select>
+                                    </div>
+
                                     <div class="mt-3">
                                         <label for="image-uploadify" class="form-label">Image du produit</label>
                                         <div class="card">
