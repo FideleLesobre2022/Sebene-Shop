@@ -24,36 +24,50 @@
         <!--end breadcrumb-->
 
         {{-- CARD VIEW --}}
-        <div class="row row-cols-sm-2 row-cols-lg-5 row-cols-xl-3 row-cols-xxl-5">
-        @foreach ($produits as $produit)
-            <div class="col">
-                <div class="card">
-                    <img src={!! asset('assets/images/products/01.png')!!} class="card-img-top" alt="Erreur de Chargement de l'image">
-                    <div class="">
-                        <div class="position-absolute top-0 end-0 m-3 product-discount fw-bold">
-                            <span> {{"$"}} </span>
-                            <span> {{ $produit->prix }}</span>
+        <div class="row row-cols-sm-2 row-cols-lg-5 row-cols-xl-4 row-cols-xxl-5 product-grid" title="Voir le détail">
+            @foreach ($produits as $produit)
+                <div class="col">
+                    <div class="card">
+                        <a href="{{ route('produits.show', $produit->id) }}">
+                            <img src={!! asset('assets/images/products/01.png') !!} class="card-img-top" alt="Erreur de Chargement de l'image">
+                        </a>
+                        <div class="">
+                            <div class="position-absolute top-0 end-0 m-3 product-discount fw-bold">
+                                <span> {{ "$" }} </span>
+                                <span> {{ $produit->prix }}</span>
+                            </div>
+                            <div class="position-absolute top-0 start-2 m-3 fw-bold">
+                                @if ($produit->disponibilite !== 0)
+                                    <div class="container bg-success rounded">
+                                        <i class="bx bxs-check-circle font-15 text-light"></i>
+                                        <a href="{{ route('produits.show', $produit->id) }}" class="text-light"
+                                            type="button">Disponible</a>
+                                    </div>
+                                @else
+                                    <div class="container bg-danger rounded">
+                                        <i class="bx bx-x-circle font-15 text-light"></i>
+                                        <a href="{{ route('produits.show', $produit->id) }}" class="text-light"
+                                            type="button">Non disponible</a>
+                                    </div>
+                                @endif
+                            </div>
                         </div>
-                        <div class="position-absolute top-0 start-2 m-3  fw-bold">
-                            @if ($produit->disponibilite !== 0 )
-                                <span> Disponible</span>
-                            @else
-                                <span> Non disponible</span>
-                            @endif
+                        <div class="card-body">
+                            <a class="fw-bold text-dark" href="{{ route('produits.show', $produit->id) }}">
+                                {{ $produit->nom_produit }} </a>
+                            <div class="clearfix">
+                                <p class="mb-0 float-start">Fabrication : <strong> {{ $produit->date_fabrication_produit }}
+                                    </strong></p>
+                            </div>
+                            <div class="clearfix">
+                                <p class="mb-0 float-start">Expiration : <strong> {{ $produit->date_fabrication_produit }}
+                                    </strong></p>
+                            </div>
+                            <a href="{{ route('produits.show', $produit->id) }}" type="button"
+                                class="btn btn-primary">AFFICHER LE DETAIL</a>
                         </div>
-                    </div>
-                    <div class="card-body">
-                        <h6 class="card-title cursor-pointer"> {{ $produit->nom_produit }} </h6>
-                        <div class="clearfix">
-                            <p class="mb-0 float-start">Fabrication : <strong> {{ $produit->date_fabrication_produit }} </strong></p>
-                        </div>
-                        <div class="clearfix">
-                            <p class="mb-0 float-start">Expiration : <strong> {{ $produit->date_fabrication_produit }} </strong></p>
-                        </div>
-                        <a href="{{ route('produits.show',$produit->id) }}" type="button" class="btn btn-primary">AFFICHER LE DETAIL</a>
                     </div>
                 </div>
-            </div>
             @endforeach
         </div><!--end row-->
 

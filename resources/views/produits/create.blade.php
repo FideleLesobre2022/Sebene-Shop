@@ -15,6 +15,11 @@
                     </ol>
                 </nav>
             </div>
+            <div class="ms-auto">
+                <div class="btn-group">
+                    <a href="{{ route('produits.index') }}" type="button" class="btn btn-primary">RETOURNER</a>
+                </div>
+            </div>
         </div>
         <!--end breadcrumb-->
 
@@ -25,7 +30,8 @@
                 <div class="form-body mt-4">
                     <div class="row">
                         {{-- Pour mieux faire, ajouter une méthode blade et mettre csrf pour la sécurité du formulaire --}}
-                        <form class="row g-3" method="POST" action="{{ route('produits.store') }}">
+                        <form class="row g-3" method="POST" action="{{ route('produits.store') }}"
+                            enctype="multipart/form-data">
                             @method('POST')
                             @csrf
                             <div class="col-lg-8">
@@ -45,69 +51,68 @@
                                             <div class="alert alert-danger">{{ $message }}</div>
                                         @enderror
                                     </div>
-                                    <div class="col-md-6">
-                                        <label for="fabrication" class="form-label">Date de fabrication</label>
-                                        <input type="date" class="form-control" name="date_fabrication_produit"
-                                            id="fabrication" placeholder="00.00">
-                                        @error('date_fabrication_produit')
-                                            <div class="alert alert-danger">{{ $message }}</div>
-                                        @enderror
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label for="expiry" class="form-label">Date d'expiration</label>
-                                        <input type="date" class="form-control" name="date_expiration_produit"
-                                            id="expiry">
-                                        @error('date_expiration_produit')
-                                            <div class="alert alert-danger">{{ $message }}</div>
-                                        @enderror
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label for="inputPrice" class="form-label">Price</label>
-                                        <input type="text" class="form-control" name="prix" id="inputPrice"
-                                            placeholder="00.00">
-                                        @error('prix')
-                                            <div class="alert alert-danger">{{ $message }}</div>
-                                        @enderror
+                                    <div class="mb-3 row">
+                                        <div class="col-md-6">
+                                            <label for="fabrication" class="form-label">Date de fabrication</label>
+                                            <input type="date" class="form-control" name="date_fabrication_produit"
+                                                id="fabrication" placeholder="00.00">
+                                            @error('date_fabrication_produit')
+                                                <div class="alert alert-danger">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <label for="expiry" class="form-label">Date d'expiration</label>
+                                            <input type="date" class="form-control" name="date_expiration_produit"
+                                                id="expiry">
+                                            @error('date_expiration_produit')
+                                                <div class="alert alert-danger">{{ $message }}</div>
+                                            @enderror
+                                        </div>
                                     </div>
 
-                                    <div class="col-md-6 form-group" >
-                                        <label for="disponibilite" class="form-label mb-3 mt-3">Disponibilité</label>
-                                        <select name="disponibilite" class="select-group" id="disponibilite">
-                                            <option value="0" class="select-item" selected>Non disponible</option>
-                                            <option value="1" >Disponible</option>
-                                        </select>
-                                    </div>
+                                    <div class="mb-3 row">
+                                        <div class="col-md-6">
+                                            <label for="inputPrice" class="form-label">Price</label>
+                                            <input type="text" class="form-control" name="prix" id="inputPrice"
+                                                placeholder="00.00">
+                                            @error('prix')
+                                                <div class="alert alert-danger">{{ $message }}</div>
+                                            @enderror
+                                        </div>
 
-                                    <div class="mt-3">
+                                        <div class="col-md-6 form-group">
+                                            <label for="disponibilite" class="form-label">Disponibilité</label>
+                                            <select name="disponibilite" class="form-control" id="disponibilite">
+                                                <option value="0" class="form-control" selected>Non disponible</option>
+                                                <option value="1" class="form-control">Disponible</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="mt-3 form-group">
                                         <label for="image-uploadify" class="form-label">Image du produit</label>
-                                        <div class="card">
-                                            <div class="card-body" style="border-style: dashed; border-color:blue">
-                                                <div class="ff_fileupload_wrap">
-                                                    <div class="ff_fileupload_dropzone_wrap">
-                                                        <button class="ff_fileupload_dropzone" type="button"
-                                                            aria-label="Browse, drag-and-drop, or paste files to upload">
-                                                            <input id="fancy-file-upload" type="file" name="files"
-                                                                accept=".jpg, .png, image/jpeg, image/png" multiple=""
-                                                                class="ff_fileupload_hidden">
-                                                        </button>
-                                                        <div class="ff_fileupload_dropzone_tools">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!--end row-->
-                                    </div>
-                                    <div class="col-md-6 mt-3 mb-4">
-                                        <div class="d-grid">
-                                            <button type="submit" class="btn btn-primary">Enregistrer</button>
-                                        </div>
+                                        <input id="fancy-file-upload" type="file" multiple="" class="form-control "
+                                            name="image_produit"
+                                            accept=".jpg, .png, .svg, gif, image/jpeg, image/gif, image/svg, image/png">
+                                        @error('image_produit')
+                                            <div class="alert alert-danger">{{ $message }}</div>
+                                        @enderror
                                     </div>
                                 </div>
                             </div>
-                        </form>
-                    </div><!--end row-->
+                    </div>
+                    <!--end row-->
+                </div>
+                <div class="col-md-6 mt-3 mb-4">
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-primary">Enregistrer</button>
+                    </div>
                 </div>
             </div>
         </div>
-    @endsection
+        </form>
+    </div><!--end row-->
+    </div>
+    </div>
+    </div>
+@endsection

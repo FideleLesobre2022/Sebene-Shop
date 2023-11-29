@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 
-use App\Models\Produits;
+use App\Models\Produit;
 use Illuminate\Http\Request;
 
 class ProduitController extends Controller
@@ -16,7 +16,7 @@ class ProduitController extends Controller
         //Corriger la numérotation
         $counter = 1;
         //Charger les données de la DB
-        $produits = Produits::all();
+        $produits = Produit::all();
         return view('produits.index', compact('produits'));
 
     }
@@ -42,13 +42,14 @@ class ProduitController extends Controller
             'nom_produit' => 'required|unique:produits,nom_produit',
             'prix' => 'required',
             'date_fabrication_produit' => 'required',
-            'date_expiration_produit' => 'required'
+            'date_expiration_produit' => 'required',
+            'image_produit' => 'image|mimes:jpg,png,svg,gif|max:2048',
         ]);
 
         // 1: Ajout du client à la base de données
         // 1. 1: Appel de la classe Client étant égal à la classe définie dans Models.Client
         // On stocke le new Client dans une variable pour pas qu'on l'invoque à chaque élement de la Classe
-        $produits = new Produits;
+        $produits = new Produit;
 
         // 1. 2: Compléter les élements contenus dans $request comme décrit sur la fonction store()
         // 1. 3: Comme Client est une classe, indexer chaque variable; préciser la valeur
@@ -73,7 +74,7 @@ class ProduitController extends Controller
     public function show(string $id)
     {
         //
-        $produits = Produits::findOrfail($id);;
+        $produits = Produit::findOrfail($id);;
         return view('produits.details', compact('produits'));
     }
 
@@ -83,7 +84,7 @@ class ProduitController extends Controller
     public function edit(string $id)
     {
         //Avant de récupérer le formulaire, récupérer d'abord des informations du client à l'$id choisi
-        $produits = Produits::findOrfail($id);
+        $produits = Produit::findOrfail($id);
 
         //Appeler le formulaire en tenant compte de l'id séléctionner
         return view('produits.edit', compact('produits'));
@@ -98,14 +99,14 @@ class ProduitController extends Controller
         // Sachant que validate est inclu dans la classe Request
         $request->validate
         ([
-            'nom_produit' => 'required|unique:produits,nom_produit',
+            'nom_produit' => 'required',
             'prix' => 'required',
             'date_fabrication_produit' => 'required',
-            'date_expiration_produit' => 'required'
+            'date_expiration_produit' => 'required',
         ]);
 
         // Identifier d'abord l'élémnt à mettre à jour
-        $produits = Produits::findOrfail($id);
+        $produits = Produit::findOrfail($id);
         // Donnez les valeurs équivalent aux noms des champs sur le formulaire
         $produits->nom_produit = $request->get('nom_produit');
         $produits->prix = $request->get('prix');
@@ -128,7 +129,7 @@ class ProduitController extends Controller
     {
         // Pour supprimer un élément on doit
         // 1: Localiser l'ID qu'on veut supprimer
-        $produits = Produits::find($id);
+        $produits = Produit::find($id);
         // 2: On le supprime
         $produits->delete();
         return redirect()->route('produits.index')->with('Success', 'Client a été supprimer avec succes');

@@ -9,11 +9,17 @@
             <div class="ps-3">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb mb-0 p-0">
-                        <li class="breadcrumb-item"><a href="{{ route('produits.index') }}"><i class="bx bx-grid-alt"></i></a>
+                        <li class="breadcrumb-item"><a href="{{ route('produits.index') }}"><i class="bx bx-cart"></i></a>
                         </li>
-                        <li class="breadcrumb-item active" aria-current="page">Nouveau Produit</li>
+                        <li class="breadcrumb-item active" aria-current="page">Modification des information du produit</li>
                     </ol>
                 </nav>
+            </div>
+            <div class="ms-auto">
+                <div class="btn-group">
+                    <a href="{{ route('produits.show', $produits->id) }}" type="button"
+                        class="btn btn-primary">RETOURNER</a>
+                </div>
             </div>
         </div>
         <!--end breadcrumb-->
@@ -46,69 +52,68 @@
                                             <div class="alert alert-danger">{{ $message }}</div>
                                         @enderror
                                     </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label for="fabrication" class="form-label">Date de fabrication</label>
+                                            <input type="date" class="form-control" name="date_fabrication_produit"
+                                                id="fabrication" value="{{ $produits->date_fabrication_produit }}">
+                                            @error('date_fabrication_produit')
+                                                <div class="alert alert-danger">{{ $message }}</div>
+                                            @enderror
+                                        </div>
 
-                                    <div class="col-md-6">
-                                        <label for="fabrication" class="form-label">Date de fabrication</label>
-                                        <input type="date" class="form-control" name="date_fabrication_produit"
-                                            id="fabrication" value="{{ $produits->date_fabrication_produit }}">
-                                        @error('date_fabrication_produit')
-                                            <div class="alert alert-danger">{{ $message }}</div>
-                                        @enderror
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label for="expiry" class="form-label">Date d'expiration</label>
-                                        <input type="date" class="form-control" name="date_expiration_produit"
-                                            id="expiry" value="{{ $produits->date_expiration_produit }}">
-                                        @error('date_expiration_produit')
-                                            <div class="alert alert-danger">{{ $message }}</div>
-                                        @enderror
-                                    </div>
-                                    <div class="col-md-6 form-group">
-                                        <label for="disponibilite" class="form-label mb-3 mt-3">Disponibilité</label>
-                                        <select name="disponibilite" class="select-group" id="disponibilite">
-                                            <option value="0" {{ $produits->disponibilite === 0 ? "selected" : "" }} >Non disponible</option>
-                                            <option value="1" {{ $produits->disponibilite === 1 ? "selected" : "" }} >Disponible</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label for="inputPrice" class="form-label">Price</label>
-                                        <input type="text" class="form-control" name="prix" id="inputPrice"
-                                            placeholder="00.00" value="{{ $produits->prix }}">
-                                        @error('prix')
-                                            <div class="alert alert-danger">{{ $message }}</div>
-                                        @enderror
+                                        <div class="col-md-6">
+                                            <label for="expiry" class="form-label">Date d'expiration</label>
+                                            <input type="date" class="form-control" name="date_expiration_produit"
+                                                id="expiry" value="{{ $produits->date_expiration_produit }}">
+                                            @error('date_expiration_produit')
+                                                <div class="alert alert-danger">{{ $message }}</div>
+                                            @enderror
+                                        </div>
                                     </div>
 
-                                    <div class="mt-3">
+                                    <div class="row mt-2">
+                                        <div class="col-md-6">
+                                            <label for="inputPrice" class="form-label">Price</label>
+                                            <input type="text" class="form-control" name="prix" id="inputPrice"
+                                                placeholder="00.00" value="{{ $produits->prix }}">
+                                            @error('prix')
+                                                <div class="alert alert-danger">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="disponibilite" class="form-label">Disponibilité</label>
+                                            <select name="disponibilite" class="form-control" id="disponibilite">
+                                                <option value="0"
+                                                    {{ $produits->disponibilite === 0 ? 'selected' : '' }}>
+                                                    Non disponible</option>
+                                                <option value="1"
+                                                    {{ $produits->disponibilite === 1 ? 'selected' : '' }}>
+                                                    Disponible</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="mt-3 form-group">
                                         <label for="image-uploadify" class="form-label">Image du produit</label>
-                                        <div class="card">
-                                            <div class="card-body" style="border-style: dashed; border-color:blue">
-                                                <div class="ff_fileupload_wrap">
-                                                    <div class="ff_fileupload_dropzone_wrap">
-                                                        <button class="ff_fileupload_dropzone" type="button"
-                                                            aria-label="Browse, drag-and-drop, or paste files to upload">
-                                                            <input id="fancy-file-upload" type="file" name="files"
-                                                                accept=".jpg, .png, image/jpeg, image/png" multiple=""
-                                                                class="ff_fileupload_hidden">
-                                                        </button>
-                                                        <div class="ff_fileupload_dropzone_tools">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!--end row-->
+                                        <input id="fancy-file-upload" type="file" multiple="" class="form-control "
+                                            name="image_produit"
+                                            accept=".jpg, .png, .svg, gif, image/jpeg, image/gif, image/svg, image/png">
+                                        @error('image_produit')
+                                            <div class="alert alert-danger">{{ $message }}</div>
+                                        @enderror
                                     </div>
-                                    <div class="col-md-6 mt-3 mb-4">
-                                        <div class="d-grid">
-                                            <button type="submit" class="btn btn-primary">Enregistrer</button>
-                                        </div>
+                                    <!--end row-->
+                                </div>
+                                <div class="col-md-6 mt-3 mb-4">
+                                    <div class="d-grid">
+                                        <button type="submit" class="btn btn-primary">Enregistrer</button>
                                     </div>
                                 </div>
                             </div>
-                        </form>
-                    </div><!--end row-->
-                </div>
+                    </div>
+                    </form>
+                </div><!--end row-->
             </div>
         </div>
-    @endsection
+    </div>
+@endsection
