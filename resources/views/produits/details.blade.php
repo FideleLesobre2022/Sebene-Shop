@@ -42,10 +42,33 @@
                 </div>
                 <div class="col-md-8">
                     <div class="card-body">
-                        <h4 class="card-title"> {{ $produits->nom_produit }} </h4>
-                        <div class="mb-3">
-                            <span class="price h4">$ {{ $produits->prix }} </span>
+                        <div class="row">
+                            <div class="col">
+                                <h4 class="card-title"> {{ $produits->nom_produit }} </h4>
+                            </div>
+                            <div class="col">
+                                <div class="mb-3">
+                                    <span class="price h4">$ {{ $produits->prix }} </span>
+                                </div>
+                            </div>
+                            <div class="col">
+                                @if ($produits->disponibilite !== 0)
+                                    <div class="container bg-success rounded">
+                                        <i class="bx bxs-check-circle font-15 text-light"></i>
+                                        <a href="" class="text-light"
+                                            type="button">Disponible</a>
+                                    </div>
+                                @else
+                                    <div class="container bg-danger rounded">
+                                        <i class="bx bx-x-circle font-15 text-light"></i>
+                                        <a href="" class="text-light"
+                                            type="button">Non disponible</a>
+                                    </div>
+                                @endif
+                            </div>
                         </div>
+                        <hr>
+                        <h5 class="top-0 fw-bold mt-0">Description</h5>
                         <p class="card-text fs-6">
                             {{ $produits->description_produit }}
                         </p>
