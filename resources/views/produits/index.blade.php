@@ -28,11 +28,8 @@
             @foreach ($produits as $produit)
                 <div class="col">
                     <div class="card">
-                        <a href="{{ route('produits.show', $produit->id) }}">
-                            <img src={!! asset('assets/images/products/01.png') !!} class="card-img-top" alt="Erreur de Chargement de l'image">
-                        </a>
-                        <div class="">
-                            <div class="position-absolute top-0 end-0 m-3 product-discount fw-bold">
+                        <div class="card-title top-0 mb-4">
+                            <div class="position-absolute top-0 end-0 m-3 fw-bold">
                                 <span> {{ "$" }} </span>
                                 <span> {{ $produit->prix }}</span>
                             </div>
@@ -53,6 +50,9 @@
                             </div>
                         </div>
                         <div class="card-body">
+                            <a href="{{ route('produits.show', $produit->id) }}">
+                                <img src={!! asset('storage/' . $produit->image_produit) !!} class="card-img-top" alt="Erreur de Chargement de l'image">
+                            </a>
                             <a class="fw-bold text-dark" href="{{ route('produits.show', $produit->id) }}">
                                 {{ $produit->nom_produit }} </a>
                             <div class="clearfix">
