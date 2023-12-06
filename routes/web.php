@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\EmployeController;
 use App\Http\Controllers\ProduitController;
+use App\Http\Controllers\StockController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,3 +24,4 @@ Route::get('/', function () {
 Route::resource('/clients', ClientController::class);
 Route::resource('/produits', ProduitController::class);
 Route::resource('/employes', EmployeController::class);
+Route::resource('/stocks', StockController::class);
